@@ -14,6 +14,8 @@ class Wardrobe
   end
 
   def clothes_by_weather(temperature)
-    garments.select { |garment| garment.suitable?(temperature) }.uniq(&:type)
+    garments.select { |garment| garment.suitable?(temperature) }
+            .shuffle
+            .uniq(&:type)
   end
 end
