@@ -2,15 +2,18 @@ require_relative 'lib/wardrobe'
 require 'rack'
 require 'open-uri'
 require 'json'
-require 'uri'
 require 'addressable'
 
+# В константы CITY и WEATHER_APP_ID впишите название города и API-ключ,
+# сгенерировав его по ссылке `https://home.openweathermap.org/users/sign_in`
+CITY = 'Saint Petersburg'.freeze
+WEATHER_APP_ID = 'API-key'.freeze
+
 WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather/'.freeze
-WEATHER_APP_ID = '643b38c496bbf3acae79cdc01c81c36c'.freeze
 url = WEATHER_API_URL
 
 query = Rack::Utils.build_query(
-  'q' => 'Saint Petersburg',
+  'q' => CITY,
   'APPID' => WEATHER_APP_ID,
   'units' => 'metric'
 )
