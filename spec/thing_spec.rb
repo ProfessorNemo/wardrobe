@@ -1,10 +1,9 @@
-require_relative 'spec_helper'
-require 'zombie'
+require 'thing'
 
-RSpec.describe 'Thing' do
+describe Thing do
   let(:thing) { Thing.new(name: 'Шлепанцы', type: 'Обувь', temp_range: 20..40) }
 
-  let(:thing_from_file) { Thing.read_file('fixtures/2.txt') }
+  let(:thing_from_file) { Thing.read_file('./spec/fixtures/2.txt') }
 
   describe '#read_file' do
     it "returns instance of #{Thing}" do
