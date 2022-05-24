@@ -1,7 +1,7 @@
-require_relative 'spec_helper'
-# require 'rspec'
+require 'thing'
+require 'wardrobe'
 
-RSpec.describe Wardrobe do
+describe Wardrobe do
   let(:garments) do
     [
       Thing.new(name: 'Водолазка', type: 'Кофта', temp_range: 15..20),
@@ -12,7 +12,7 @@ RSpec.describe Wardrobe do
 
   let(:wardrobe) { Wardrobe.new(garments) }
 
-  let(:wardrobe_from_dir) { Wardrobe.read_from_dir_files('fixtures/*.txt') }
+  let(:wardrobe_from_dir) { Wardrobe.read_from_dir_files('./spec/fixtures/*.txt') }
 
   describe '#read_from_dir_files' do
     it 'returns a Wardrobe instance' do

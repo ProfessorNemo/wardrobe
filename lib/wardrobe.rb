@@ -3,10 +3,8 @@ require_relative 'thing'
 class Wardrobe
   attr_reader :garments
 
-  class << self
-    def read_from_dir_files(path)
-      new(Dir[path].map { |file_name| Thing.read_file(file_name) })
-    end
+  def self.read_from_dir_files(path)
+    new(Dir[path].map { |file_name| Thing.read_file(file_name) })
   end
 
   def initialize(garments)
